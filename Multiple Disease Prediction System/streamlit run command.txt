@@ -1,0 +1,1 @@
+streamlit run "/Users/muzz/CodeCon-Team-20/Multiple Disease Prediction System/multiple disease pred.py"

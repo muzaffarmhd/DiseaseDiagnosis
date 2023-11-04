@@ -1,2 +1,9 @@
-# DiseaseDiagnosis
-A Multiple Disease Prediction System using "Support Vector Machine" Machine learning mode, trained on large Heart Disease data, Pneumonia XRay images, and Diabeties data.
+# CodeCon-Team-20
+<br>Team Details
+Inspiration <br>
+What it does <br>
+How we built it <br>
+Challenges we ran into <br>
+Accomplishments that we're proud of <br>
+What we learned <br>
+Built With <br>
