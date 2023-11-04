@@ -1,4 +1,4 @@
-#Multiple disease prediction system
+# Multiple disease prediction system
 A Machine Learning based 
 -Heart Disease Prediction
 -Diabeties Prediction
