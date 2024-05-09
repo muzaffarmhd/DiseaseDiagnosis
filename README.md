@@ -6,7 +6,7 @@ A Machine Learning based
 
 To run and test:
 1. Create a virtual environment and move to it.
-2. `pip install -r requirements.txt`
+2.     pip install -r requirements.txt
 ### On Mac/Linux:
     Run the runmac.sh file
 ### On Windows:
