@@ -4,6 +4,9 @@ A Machine Learning based
 -Diabeties Prediction
 -Pneumonia Prediction using Image
 
+To run and test:
+1. Create a virtual environment and move to it.
+2. `pip install -r requirements.txt`
 The model was trained using Support Vector Machine ML algorithm, and the data was collected from kaggle.com
 ### Note:
     This project was done in collaboration with @muzzlol as a part of CodeCon Hackathon(2023)

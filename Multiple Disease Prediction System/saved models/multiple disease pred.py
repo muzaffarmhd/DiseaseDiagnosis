@@ -3,18 +3,23 @@ import pickle
 import streamlit as st
 import numpy as np
 from streamlit_option_menu import option_menu
-import cv2
-import matplotlib.pyplot as plt
 from PIL import Image
-
+import os
 
 # loading the saved models
+current_dir = os.path.dirname(os.path.abspath(__file__))
+diabetes_model_path = os.path.join(current_dir,  "diabetes_model.sav")
 
-diabetes_model = pickle.load(open("C:/Users/mdmux/Desktop/muzaffarmhd/Projects/CodeCon-Team-20-main/Multiple Disease Prediction System/saved models/diabetes_model.sav", 'rb'))
+heart_disease_model_path = os.path.join(current_dir,  "heart_disease_model.sav")
 
-heart_disease_model = pickle.load(open("C:/Users/mdmux/Desktop/muzaffarmhd/Projects/CodeCon-Team-20-main/Multiple Disease Prediction System/saved models/heart_disease_model.sav",'rb'))
+pneumonia_model_path = os.path.join(current_dir,  "xraymodel.sav")
 
-pneumonia_model= pickle.load(open('C:/Users/mdmux/Desktop/muzaffarmhd/Projects/CodeCon-Team-20-main/Multiple Disease Prediction System/saved models/xraymodel.sav','rb'))
+# Now you can load your model
+diabetes_model = pickle.load(open(diabetes_model_path, 'rb'))
+
+heart_disease_model = pickle.load(open(heart_disease_model_path,'rb'))
+
+pneumonia_model= pickle.load(open(pneumonia_model_path,'rb'))
 
 
 # sidebar for navigation
@@ -135,7 +140,7 @@ if (selected == 'Heart Disease'):
     # creating a button for Prediction
     
     if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
+        heart_prediction = heart_disease_model.predict([[float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]])
         
         if (heart_prediction[0] == 1):
           heart_diagnosis = 'The person is having heart disease'
