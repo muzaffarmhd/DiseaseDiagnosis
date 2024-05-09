@@ -3,8 +3,6 @@ import pickle
 import streamlit as st
 import numpy as np
 from streamlit_option_menu import option_menu
-import cv2
-import matplotlib.pyplot as plt
 from PIL import Image
 import os
 
