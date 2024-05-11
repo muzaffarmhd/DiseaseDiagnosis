@@ -97,54 +97,67 @@ if (selected == 'Heart Disease'):
         age = st.text_input('Age')
         
     with col2:
-        sex = st.text_input('Sex')
-        
-    with col3:
-        cp = st.text_input('Chest Pain types')
-        
-    with col1:
-        trestbps = st.text_input('Resting Blood Pressure')
-        
-    with col2:
-        chol = st.text_input('Serum Cholestoral in mg/dl')
-        
-    with col3:
-        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
-        
-    with col1:
-        restecg = st.text_input('Resting Electrocardiographic results')
-        
-    with col2:
-        thalach = st.text_input('Maximum Heart Rate achieved')
-        
-    with col3:
-        exang = st.text_input('Exercise Induced Angina')
-        
-    with col1:
-        oldpeak = st.text_input('ST depression induced by exercise')
-        
-    with col2:
-        slope = st.text_input('Slope of the peak exercise ST segment')
-        
-    with col3:
-        ca = st.text_input('Major vessels colored by flourosopy')
-        
-    with col1:
-        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
+        sex_mapping = {'male': 0, 'female': 1}
+        sex_selected = st.selectbox('Sex', ['male', 'female'], index=0)
 
-    
+        sex = sex_mapping[sex_selected]
+        
+    with col3:
+        cp_mapping = {'Typical angina': 0, 'Atypical angina': 1, 'Non-anginal pain': 2, 'Asymptomatic': 3}
+        cp_selected = st.selectbox('Chest Pain Type', ['Typical angina', 'Atypical angina', 'Non-anginal pain', 'Asymptomatic'], index=0)
+
+        cp = cp_mapping[cp_selected]
+
+        # cp = st.selectbox('Chest Pain Type', ['Typical angina', 'Atypical angina', 'Non-anginal pain', 'Asymptomatic'], index=0)
+        
+    with col1:
+        trestbps = st.text_input('Resting Blood Pressure',placeholder="120 mmHg")
+        
+    with col2:
+        chol = st.text_input('Serum Cholestoral in mg/dl', placeholder="139 mg/dL")
+        
+    with col3:
+        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl', placeholder="120mg/dL")
+        
+    with col1:
+        restecg_mapping = {'Normal': 0, 'Abnormality': 1}
+        restecg_selected = st.selectbox('Resting Electrocardiographic results', ['Normal', 'Abnormality'], index=0)
+        restecg = restecg_mapping[restecg_selected]
+        
+    with col2:
+        thalach = st.text_input('Maximum Heart Rate achieved',placeholder="150 bpm")
+        
+    with col3:
+        exang = st.radio('Exercise Induced Angina', ['0 : No', '1 : Yes'], index=0)
+        
+    with col1:
+        oldpeak = st.text_input('ST depression induced by exercise',placeholder="1.4 mm")
+        
+    with col2:
+        slope = st.selectbox('Slope of the peak exercise ST segment', ['0: Up', '1: Flat', '2: Down'], index=0)
+        
+    with col3:
+        ca_mapping = {'0 vessels': 0, '1 vessel': 1, '2 vessels': 2, '3 vessels': 3}
+        ca_selected = st.selectbox('Major vessels colored by fluoroscopy', list(ca_mapping.keys()), index=0)
+        ca = ca_mapping[ca_selected]
+
+    with col1:
+        thal_mapping = {'Normal': 0, 'Fixed damage': 1, 'Reversible damage': 2}
+        thal_selected = st.selectbox('Thal', list(thal_mapping.keys()), index=0)
+        thal = thal_mapping[thal_selected]
+
         # code for Prediction
     heart_diagnosis = ''
     
     # creating a button for Prediction
     
-    if st.button('Heart Disease Test Result'):
+    if st.button('Get Result'):
         heart_prediction = heart_disease_model.predict([[float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]])
         
         if (heart_prediction[0] == 1):
-          heart_diagnosis = 'The person is having heart disease'
+          heart_diagnosis = 'The person is likely has a heart disease'
         else:
-          heart_diagnosis = 'The person does not have any heart disease'
+          heart_diagnosis = 'The person likely does not have heart diseases'
         
     st.success(heart_diagnosis)
 
