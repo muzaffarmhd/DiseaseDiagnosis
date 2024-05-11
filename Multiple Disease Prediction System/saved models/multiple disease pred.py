@@ -33,38 +33,39 @@ with st.sidebar:
     
     
 # Diabetes Prediction Page
+        
 if (selected == 'Diabetes'):
     
     # Title of the page
     st.title('Diabetes Prediction using ML')
     
     
-    # getting the input data from the user
+    # Getting the input data from the user
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        Pregnancies = st.text_input('Number of Pregnancies')
+        Pregnancies = st.text_input('Number of Pregnancies', placeholder='Enter number of pregnancies')
         
     with col2:
-        Glucose = st.text_input('Glucose Level')
+        Glucose = st.text_input('Glucose Level (mg/dL)', placeholder='Enter glucose level')
     
     with col3:
-        BloodPressure = st.text_input('Blood Pressure value')
+        BloodPressure = st.text_input('Blood Pressure (mmHg)', placeholder='Enter blood pressure value')
     
     with col1:
-        SkinThickness = st.text_input('Skin Thickness value')
+        SkinThickness = st.text_input('Skin Thickness (mm)', placeholder='Enter skin thickness value')
     
     with col2:
-        Insulin = st.text_input('Insulin Level')
+        Insulin = st.text_input('Insulin Level (mu U/ml)', placeholder='Enter insulin level')
     
     with col3:
-        BMI = st.text_input('BMI value')
+        BMI = st.text_input('BMI (kg/m^2)', placeholder='Enter BMI value')
     
     with col1:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
+        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function', placeholder='Enter diabetes pedigree function value')
     
     with col2:
-        Age = st.text_input('Age of the Person')
+        Age = st.text_input('Age of the Person', placeholder='Enter age')
     
     
     # code for Prediction
