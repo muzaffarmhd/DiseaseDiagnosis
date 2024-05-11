@@ -5,4 +5,4 @@ opencv-python==4.9.0.80
 matplotlib==3.4.3
 Pillow==10.3.0
 pickle-mixin==1.0.2
-scikit-learn==1.4.2.
+scikit-learn==1.4.2
