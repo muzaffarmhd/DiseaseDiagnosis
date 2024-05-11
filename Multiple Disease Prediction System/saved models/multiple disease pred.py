@@ -25,7 +25,6 @@ pneumonia_model= pickle.load(open(pneumonia_model_path,'rb'))
 # sidebar for navigation
 with st.sidebar:
     
-    
     selected = option_menu('ML-Driven System for Predicting Multiple Diseases',
                         ['Diabetes', 'Heart Disease', 'Pneumonia'],
                         icons=['activity','heart','lungs'],
@@ -36,7 +35,7 @@ with st.sidebar:
 # Diabetes Prediction Page
 if (selected == 'Diabetes'):
     
-    # page title
+    # Title of the page
     st.title('Diabetes Prediction using ML')
     
     
