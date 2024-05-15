@@ -129,14 +129,21 @@ if (selected == 'Heart Disease'):
         thalach = st.text_input('Maximum Heart Rate achieved',placeholder="150 bpm")
         
     with col3:
-        exang = st.radio('Exercise Induced Angina', ['0 : No', '1 : Yes'], index=0)
-        
+        # exang = st.radio('Exercise Induced Angina', ['0 : No', '1 : Yes'], index=0)
+        exang_mapping = {'No': 0, 'Yes': 1}
+        exang_selected = st.radio('Exercise Induced Angina', list(exang_mapping.keys()), index=0)
+        exang = exang_mapping[exang_selected]
+
     with col1:
         oldpeak = st.text_input('ST depression induced by exercise',placeholder="1.4 mm")
         
     with col2:
-        slope = st.selectbox('Slope of the peak exercise ST segment', ['0: Up', '1: Flat', '2: Down'], index=0)
-        
+ 
+        # slope = st.selectbox('Slope of the peak exercise ST segment', ['0: Up', '1: Flat', '2: Down'], index=0)
+        slope_mapping = {'0: Upsloping': 0, '1: Flat': 1, '2: Downsloping': 2}
+        slope_selected = st.selectbox('Slope of the peak exercise ST segment', list(slope_mapping.keys()), index=0)
+        slope = slope_mapping[slope_selected]
+
     with col3:
         ca_mapping = {'0 vessels': 0, '1 vessel': 1, '2 vessels': 2, '3 vessels': 3}
         ca_selected = st.selectbox('Major vessels colored by fluoroscopy', list(ca_mapping.keys()), index=0)
